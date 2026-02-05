@@ -1,0 +1,85 @@
+import random
+import numpy as np
+
+def place():
+    a=random.randint(0,8)
+    ans=1
+    while(ans==1):
+        if(a not in p):
+            p.append(a)
+            l[a]=1
+            ans=0
+        else:
+            a=random.randint(0,8)
+            ans=1
+
+def get():
+    a=int(input("Enter your position :"))
+    #a=a+1
+    ans=1
+    while(ans==1):
+        if(a not in p):
+            p.append(a)
+            l[a]=2
+            ans=0
+        else:
+            a=int(input("Enter your position :"))
+            ans=1
+
+def display():
+    b=0
+    for i in range(3):
+        for j in range(3):
+            print(l[b]," ",end="")
+            b=b+1
+        print("\n")
+"""
+def check():
+    for i in range(8):
+        if(wl[i,0]==wl[i,1] and wl[i,1]==wl[i,2]):
+            w=1
+            return w
+
+def check():
+    for i in range(8):
+        x,y,z=wl[i,0], wl[i,1], wl[i,2]
+        if((l[x]!=0 and l[y]!=0 and l[z]!=0)and(l[x]==l[y]==l[z])):
+            w=1
+            return w   
+"""
+
+def check():
+    for i in range(8):
+        x,y,z=wl[i,0], wl[i,1], wl[i,2]
+        print("x,y,z : ",x,y,z)
+        if(l[x]==2 and l[y]==2 and l[z]==2):
+            w=1
+            print("You WoOon.....:D")
+            return w
+        elif(l[x]==1 and l[y]==1 and l[z]==1):
+            print("You LOST.....:(")
+            w=1
+            return w
+        else:
+            w=0
+            print("You draw.....")
+            return w
+
+###     MAIN        ###
+
+l=[0,0,0,0,0,0,0,0,0]
+p=[]
+w=0
+wl=np.array([0, 3, 6, 1, 4, 7, 2, 5, 8, 6, 7, 8, 3, 4, 5, 0, 1, 2, 6, 4, 2, 0, 4, 8])
+wl=wl.reshape(8,3)
+wl=[[0,3,6],[1,4,7],[2,5,8],[6,7,8],[3,4,5],[0,1,2],[6,4,2],[0,4,8]]
+
+
+
+while(w==0):
+    place()
+    display()
+    get()
+    #display()
+    w=check()
+print("THE END.....")
