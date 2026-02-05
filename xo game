@@ -44,7 +44,7 @@ def check():
     for i in range(8):
         x,y,z=wl[i,0], wl[i,1], wl[i,2]
         if((l[x]!=0 and l[y]!=0 and l[z]!=0)and(l[x]==l[y]==l[z])):
-            w=1 
+            w=1  
             return w   
 """
 
