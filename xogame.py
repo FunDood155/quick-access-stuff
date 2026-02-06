@@ -37,22 +37,22 @@ def display():
 def check():
     for i in wl:
         x,y,z=i[0],i[1],i[2]
-        print(x,y,z)
+        #print(x,y,z)
         if(l[x]==2 and l[y]==2 and l[z]==2):
             w=1
-            print("You WoOon.....:D")
+            print("\nYou WoOon.....:D")
             return w
-        elif(l[x]==1 and l[y]==1 and l[z]==1):
-            print("You LOST.....:(")
+        if(l[x]==1 and l[y]==1 and l[z]==1):
+            print("\nYou LOST.....:(")
             w=1
             return w
         elif(min(l)!=0):
             w=0
-            print("You draw.....")
+            print("\nYou draw.....")
             return w
-        else:
-            w=1
-            return w
+    else:
+        w=0
+        return w
 
 ###     MAIN        ###
 
@@ -71,4 +71,5 @@ while(w==0):
     get()
     #display()
     w=check()
-print("THE END.....")
+    #print("w : ",w)
+print("\nTHE END.....")
