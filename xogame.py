@@ -33,25 +33,11 @@ def display():
             print(l[b]," ",end="")
             b=b+1
         print("\n")
-"""
-def check():
-    for i in range(8):
-        if(wl[i,0]==wl[i,1] and wl[i,1]==wl[i,2]):
-            w=1
-            return w
 
 def check():
-    for i in range(8):
-        x,y,z=wl[i,0], wl[i,1], wl[i,2]
-        if((l[x]!=0 and l[y]!=0 and l[z]!=0)and(l[x]==l[y]==l[z])):
-            w=1  
-            return w   
-"""
-
-def check():
-    for i in range(8):
-        x,y,z=wl[i,0], wl[i,1], wl[i,2]
-        print("x,y,z : ",x,y,z)
+    for i in wl:
+        x,y,z=i[0],i[1],i[2]
+        print(x,y,z)
         if(l[x]==2 and l[y]==2 and l[z]==2):
             w=1
             print("You WoOon.....:D")
@@ -60,9 +46,12 @@ def check():
             print("You LOST.....:(")
             w=1
             return w
-        else:
+        elif(min(l)!=0):
             w=0
             print("You draw.....")
+            return w
+        else:
+            w=1
             return w
 
 ###     MAIN        ###
