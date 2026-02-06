@@ -40,6 +40,7 @@ def check():
         #print(x,y,z)
         if(l[x]==2 and l[y]==2 and l[z]==2):
             w=1
+            display()
             print("\nYou WoOon.....:D")
             return w
         if(l[x]==1 and l[y]==1 and l[z]==1):
