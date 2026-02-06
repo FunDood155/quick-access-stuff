@@ -15,7 +15,8 @@ def place():
 
 def get():
     a=int(input("Enter your position :"))
-    #a=a+1
+    
+    a=change(a)
     ans=1
     while(ans==1):
         if(a not in p):
@@ -24,6 +25,8 @@ def get():
             ans=0
         else:
             a=int(input("Enter your position :"))
+            
+            a=change(a)
             ans=1
 
 def display():
@@ -54,6 +57,19 @@ def check():
     else:
         w=0
         return w
+
+def change(a):
+    if (a in [1,2,3]):
+        a=a+6
+        a=a-1
+        return a
+    elif (a in [7,8,9]):
+        a=a-6
+        a=a-1
+        return a
+    else:
+        a=a-1
+        return a
 
 ###     MAIN        ###
 
