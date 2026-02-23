@@ -38,4 +38,6 @@ series=pd.Series(calories)
 
 series.loc["day 3"]=series.loc["day 3"]+500
 print(series[series > 2000])
+print(" - x - ")
 print(series.loc["day 3"])
+print(" - x - ")
