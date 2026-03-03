@@ -1,23 +1,37 @@
 import re
-
-with open("followers.txt", "r", encoding="utf-8") as f:
-    lines = f.readlines()
-
-usernames = []
-
-for line in lines:
-    line = line.strip()
+x=["followers.txt","following.txt"]
+y=["clean_followers.txt","clean_following.txt"]
+def makeitperfect(i):
     
-    # Instagram username pattern
-    if re.fullmatch(r"[a-zA-Z0-9._]{1,30}", line):
-        usernames.append(line)
+    with open(x[i], "r", encoding="utf-8") as f:
+        lines = f.readlines()
 
-# Remove duplicates (optional)
-usernames = list(set(usernames))
+    usernames = []
 
-# Save cleaned usernames
-with open("cleaned_usernames.txt", "w", encoding="utf-8") as f:
-    for user in usernames:
-        f.write(user + "\n")
+    for line in lines:
+        line = line.strip()
+        
+        # Instagram username pattern
+        if re.fullmatch(r"[a-z0-9._]{1,30}", line):
+            usernames.append(line)
 
-print("Total valid usernames:", len(usernames))
+    # Remove duplicates (optional)
+    usernames = list(set(usernames))
+
+    # Save cleaned usernames
+    with open(y[i], "w", encoding="utf-8") as f:
+        for user in usernames:
+            f.write(user + "\n")
+
+    print("Total valid usernames of :",y[i], len(usernames))
+    return(usernames)
+    #print(usernames)
+f1=makeitperfect(0)
+f2=makeitperfect(1)
+z=[]
+for i in f2:
+    if i not in f1:
+        z.append(i)
+print("to unfollow...")
+for i in z:
+    print(i)
